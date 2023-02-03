@@ -1,6 +1,6 @@
 abstract class Aircraft (
     // Номер воздушного судна
-    protected val number: Int,
+    val number: Int,
     // Дальность полёта, км
     protected val flightRange: Int,
     // Вместимость бака, л
@@ -9,7 +9,7 @@ abstract class Aircraft (
 
     // Расход топлива, л / 100 км
     protected val fuelConsumption: Double
-    get() = fuelCapacity / flightRange * 100.0;
+    get() = (fuelCapacity * 1000 / flightRange).toDouble() / 10.0;
 
     open fun printInfo() {
         println("""
